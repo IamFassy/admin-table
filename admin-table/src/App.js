@@ -1,12 +1,12 @@
-import TableFrame from './components/TableFrame';
-import './App.css';
+import CustomIframe from './components/CustomIframe';
+import './App.scss';
 
 function App() {
 	return (
 		<div className='App'>
-			<h3>Table</h3>
 			<div className='table-container'>
-				<TableFrame />
+				<h3>Table</h3>
+				<CustomIframe />
 			</div>
 		</div>
 	);

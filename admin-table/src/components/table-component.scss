@@ -1,0 +1,26 @@
+.table-component {
+	border-collapse: collapse;
+	background-color: #fff;
+	&__row {
+		border-bottom: 1px solid #dedede;
+		border-collapse: separate;
+
+		&-table-head {
+			padding: 10px 5px;
+			text-align: left;
+		}
+		&-table-data {
+			padding: 10px 5px;
+			text-align: left;
+			font-size: 13px;
+		}
+	}
+}
+
+.width10 {
+	width: 10%;
+}
+
+.width20 {
+	width: 20%;
+}

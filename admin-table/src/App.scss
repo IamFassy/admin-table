@@ -1,6 +1,9 @@
+@import './scss/variables.scss';
+
 .App {
-	background-color: #ededed;
+	background-color: $background;
 	min-height: 100vh;
+	overflow: hidden !important;
 }
 
 .table-container {

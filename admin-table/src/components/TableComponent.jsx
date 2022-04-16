@@ -50,6 +50,33 @@ const TableComponent = () => {
 		return <span>{data}</span>;
 	};
 
+	const openProfile = (user) => {
+		window.parent.postMessage(
+			`{"type":"profile","data":${JSON.stringify(user)}}`,
+			'*'
+		);
+	};
+
+	const openPost = (user) => {
+		window.parent.postMessage(
+			`{"type":"post","data":${JSON.stringify(user)}}`,
+			'*'
+		);
+	};
+
+	const LinkButton = (title, func, user) => {
+		return (
+			<button
+				onClick={() => {
+					func(user);
+				}}
+				className='table-component__btn-link'
+			>
+				{title}
+			</button>
+		);
+	};
+
 	return (
 		<table className='table-component'>
 			<thead className='table-component__row'>
@@ -73,7 +100,7 @@ const TableComponent = () => {
 				{users.map((user) => {
 					return (
 						<tr key={user.id}>
-							<td className='table-component__row-table-data width10'>
+							<td className='table-component__row-table-data width15'>
 								{renderRow(user.name)}
 							</td>
 							<td className='table-component__row-table-data width10'>
@@ -82,11 +109,15 @@ const TableComponent = () => {
 							<td className='table-component__row-table-data width20'>
 								{renderRow(user.email)}
 							</td>
-							<td className='table-component__row-table-data width10'>
+							<td className='table-component__row-table-data width15'>
 								{renderRow(user.phone)}
 							</td>
 							<td className='table-component__row-table-data width10'>
 								{renderRow(user.website)}
+							</td>
+							<td className='table-component__row-table-data width20'>
+								{LinkButton('View Profile', openProfile, user)}
+								{LinkButton('View Post', openPost, user)}
 							</td>
 						</tr>
 					);

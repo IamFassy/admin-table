@@ -3,6 +3,7 @@
 .table-component {
 	border-collapse: collapse;
 	background-color: #fff;
+	height: 100vh;
 	&__row {
 		border-bottom: 1px solid $border;
 		border-collapse: separate;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CustomIframe from './components/CustomIframe';
-import './App.scss';
+import './app.scss';
 import SliderContainer from './components/SliderContainer';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actionDispatchers/userDataAction';
@@ -39,9 +39,30 @@ function App() {
 		setSliderOpen(obj);
 	};
 
+	const handleType = (type) => {
+		let dummySlider = { ...sliderOpen };
+		dummySlider.type = type;
+		setSliderOpen(dummySlider);
+	};
+
+	const renderSliderBtn = (title, type) => {
+		return (
+			<button
+				className={`app__slider-container-btn ${
+					type === sliderOpen.type || sliderOpen.type === ''
+						? ''
+						: 'app__slider-container-btn-normal'
+				}`}
+				onClick={() => handleType(type)}
+			>
+				{title}
+			</button>
+		);
+	};
+
 	return (
-		<div className='App'>
-			<div className='table-container'>
+		<div className='app'>
+			<div className='app__table-container'>
 				<h3>Table</h3>
 				<CustomIframe />
 			</div>
@@ -51,6 +72,11 @@ function App() {
 					closeSlider={() => handleClose()}
 				/>
 			) : null}
+			<div className='app__slider-container'>
+				{renderSliderBtn('Profile', 'profile')}
+				<br />
+				{renderSliderBtn('Post', 'post')}
+			</div>
 		</div>
 	);
 }

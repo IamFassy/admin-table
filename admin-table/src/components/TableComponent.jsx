@@ -97,31 +97,43 @@ const TableComponent = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{users.map((user) => {
-					return (
-						<tr key={user.id}>
-							<td className='table-component__row-table-data width15'>
-								{renderRow(user.name)}
-							</td>
-							<td className='table-component__row-table-data width10'>
-								{renderRow(user.username)}
-							</td>
-							<td className='table-component__row-table-data width20'>
-								{renderRow(user.email)}
-							</td>
-							<td className='table-component__row-table-data width15'>
-								{renderRow(user.phone)}
-							</td>
-							<td className='table-component__row-table-data width10'>
-								{renderRow(user.website)}
-							</td>
-							<td className='table-component__row-table-data width20'>
-								{LinkButton('View Profile', openProfile, user)}
-								{LinkButton('View Post', openPost, user)}
-							</td>
-						</tr>
-					);
-				})}
+				{users.length > 0 ? (
+					users.map((user) => {
+						return (
+							<tr key={user.id}>
+								<td className='table-component__row-table-data width15'>
+									{renderRow(user.name)}
+								</td>
+								<td className='table-component__row-table-data width10'>
+									{renderRow(user.username)}
+								</td>
+								<td className='table-component__row-table-data width20'>
+									{renderRow(user.email)}
+								</td>
+								<td className='table-component__row-table-data width15'>
+									{renderRow(user.phone)}
+								</td>
+								<td className='table-component__row-table-data width10'>
+									{renderRow(user.website)}
+								</td>
+								<td className='table-component__row-table-data width20'>
+									{LinkButton(
+										'View Profile',
+										openProfile,
+										user
+									)}
+									{LinkButton('View Post', openPost, user)}
+								</td>
+							</tr>
+						);
+					})
+				) : (
+					<tr>
+						<td style={{ paddingLeft: 10, display: 'flex' }}>
+							Loading...
+						</td>
+					</tr>
+				)}
 			</tbody>
 		</table>
 	);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { generateInitial } from '../../utils';
 import '../slider-container.scss';
 
 const Post = ({ posts = [], user = {}, initial = '' }) => {

@@ -9,11 +9,11 @@ import './slider-container.scss';
 const getDataSlice = (state) => state.userData;
 
 const SliderContainer = (props) => {
+	const { type } = props;
 	const dispatch = useDispatch();
 	const dataSlice = useSelector(getDataSlice);
 	const posts = dataSlice.posts;
 	const user = dataSlice.selectedUser;
-	const type = props.type;
 
 	useEffect(() => {
 		if (user.id) {

@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './custom-iframe.scss';
 
 const CustomIframe = (props) => {
-	return <iframe {...props} className='custom-iframe' src='./table'></iframe>;
+	return (
+		<iframe
+			title='Table'
+			{...props}
+			className='custom-iframe'
+			src='./table'
+		></iframe>
+	);
 };
 
 export default CustomIframe;

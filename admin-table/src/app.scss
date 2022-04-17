@@ -1,0 +1,32 @@
+@import './scss/variables.scss';
+
+.app {
+	background-color: $background;
+	min-height: 100vh;
+	overflow: hidden !important;
+	&__table-container {
+		padding: 15vh 20px;
+	}
+	&__slider-container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: #fff;
+		height: 100vh;
+		width: 100px;
+		&-btn {
+			background: none;
+			border: none;
+			text-align: left;
+			width: 100%;
+			padding: 10px;
+			font-weight: bold;
+			&-normal {
+				font-weight: 400;
+			}
+		}
+		&-btn:hover {
+			cursor: pointer;
+		}
+	}
+}

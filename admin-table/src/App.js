@@ -53,7 +53,12 @@ function App() {
 						? ''
 						: 'app__slider-container-btn-normal'
 				}`}
-				onClick={() => handleType(type)}
+				onClick={() => {
+					if (!sliderOpen.show) {
+						return;
+					}
+					handleType(type);
+				}}
 			>
 				{title}
 			</button>
